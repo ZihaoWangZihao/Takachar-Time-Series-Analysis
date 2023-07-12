@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-file_path = "/Takachar-Time-Series-Analysis/Day_15_NSTPROR00006-2023-06-22.xlsx"
+file_path = "/Users/zihaowang/PycharmProjects/Time-Series-Analysis/Takachar-Time-Series-Analysis/Day_15_NSTPROR00006-2023-06-22.xlsx"
 df = pd.read_excel(file_path)
 
 col_letters = {'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4, 'F': 5, 'G': 6, 'H': 7, 'I': 8, 'J': 9,
@@ -10,7 +10,6 @@ col_letters = {'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4, 'F': 5, 'G': 6, 'H': 7, '
 
 fan_cols = ["C", "D", "E", "F", "G", "H"]
 temp_cols = ["I", "J", "K", "L", "M",] # What's with column N?
-
 
 def fan_data(columns):
     """
@@ -23,7 +22,7 @@ def fan_data(columns):
         col_to_change = df.iloc[:, col_letters[letter]]
         for i, value in enumerate(col_to_change):
             if value[-1] == "R":
-                new_value = value[:4]
+                new_value = value.split("-")
                 df.iloc[i, col_letters[letter]] = new_value  # Set the value in the current cell
             else:
                 new_value = 0
@@ -133,7 +132,7 @@ def plotting_augers(auger_motor, auger_torque, auger_current):
 
 
 # fan_data(fan_cols)
-# plotting_fan(fan_cols)
+plotting_fan(fan_cols)
 # plotting_temp(temp_cols)
 # plotting_weights("Q", "R")
 # plotting_augers("S", "T", "U")
@@ -150,4 +149,5 @@ def plotting_augers(auger_motor, auger_torque, auger_current):
 
 
 
-# Pandas Merge with tolerance
+# Pandas Merge with tolerance --> input weight
+# Matplotlib inline -->
