@@ -14,11 +14,12 @@ for index, row in df2.iterrows():
             target_row = index + 1
             target_col = int(col[-1])
             break
+
 # Specify the column and the starting row
 column_index = target_col
 starting_row = target_row
 
-# Get all values from the specified column starting from the specified row
+# All values under "Cumulative kg consumed" column in a list
 values = df2.iloc[starting_row:, column_index].tolist()
 
 # Print the values
