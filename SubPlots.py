@@ -10,18 +10,18 @@ col_letters = {'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4, 'F': 5, 'G': 6, 'H': 7, '
                'T': 19, 'U': 20, 'V': 21, 'W': 22, 'X': 23, 'Y': 24, 'Z': 25}
 
 # Columns in Excel
-fan_cols = ["C", "D", "E", "F", "G", "H"]
-temp_cols = ["I", "J", "K", "L", "M",]
-output_weight_col = "R"
-input_weight_col = "V"
-auger_motor = "S"
-auger_torque = "T"
-auger_current = "U"
+fan_cols = ["D", "E", "F", "G", "H", "I"]
+temp_cols = ["J", "K", "L", "M", "N"]
+output_weight_col = "S"
+input_weight_col = "W"
+auger_motor = "T"
+auger_torque = "U"
+auger_current = "V"
 auger_power = "P"
 
 
 # Data
-x = df.iloc[:, col_letters["B"]]  # Time
+x = df.iloc[:, col_letters["C"]]  # Time
 y_motor = df.iloc[:, col_letters[auger_motor]]
 y_torque = df.iloc[:, col_letters[auger_torque]]
 y_current = df.iloc[:, col_letters[auger_current]]
