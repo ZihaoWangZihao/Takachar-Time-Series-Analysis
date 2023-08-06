@@ -1,6 +1,11 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
+"""
+The purpose of this file is to plot the data separately. This file should only be used as reference. If you want to plot a pdf of all the
+graphs in one page, please refer to SubPlots.py
+"""
+
 file_path = "/Users/zihaowang/PycharmProjects/Time-Series-Analysis/Takachar-Time-Series-Analysis/Day_15_NSTPROR00006-2023-06-22.xlsx"
 df = pd.read_excel(file_path)
 

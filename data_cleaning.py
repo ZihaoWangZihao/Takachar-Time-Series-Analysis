@@ -20,7 +20,7 @@ def fan_data(columns):
     """
     :param columns: <list> fan columns in letter-based format
     :param file: <str> file_path
-    :return: Excel file edited
+    :return: Excel file edited with all values in the Fan columns adjusted
     """
 
     for letter in columns:
@@ -59,8 +59,6 @@ def add_cumulative_weights():
     # All values under "Cumulative kg consumed" column in a list
     kg_values = df2.iloc[starting_row:, column_index].tolist()
 
-    #########################################################################################################
-
     ###################################################### Return Time Feed ##################################################
     # Read the Excel file into a DataFrame
     df = pd.read_excel(feeding_rate_path)
@@ -95,8 +93,6 @@ def add_cumulative_weights():
 
     # Create a dictionary with time as keys and kg as values
     data_dict = dict(zip(time_feed, kg_values))
-
-    #############################################################################################################################
 
     ################################################ Return Time N #################################################################
 
@@ -164,7 +160,7 @@ def add_cumulative_weights():
 def rolling_avg(columns):
     """
     :param columns: <list> columns of data that you want rolling averages for
-    :return: Edted Excel Sheet
+    :return: Edited Excel Sheet such that the data in certain columns of the Excel sheet are now rolling averages
     """
 
     # Load the Excel file
@@ -195,6 +191,10 @@ def rolling_avg(columns):
     workbook.save(file_path)
 
 def rid_extremes(columns):
+    """
+    :param columns: Columns in Excel that you want to get rid of extremes in
+    :return: Edited Excel sheet with those columns changed such that extremes are removed
+    """
     high_extreme = 100 # Change according to preference
     workbook = load_workbook(file_path)
     sheet = workbook['Sheet1']  # Replace 'Sheet1' with the actual sheet name
@@ -210,7 +210,7 @@ def rid_extremes(columns):
         column = sheet[column_letter]  # Get the column using the letter
         for cell in column:
             cell_value = cell.value
-            if cell_value > high_extreme
+            if cell_value > high_extreme:
                 # Assign a new value to the cell
                 new_value = 0 # Replace with your desired new value
                 cell.value = new_value
